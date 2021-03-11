@@ -1,0 +1,143 @@
+#translate_show {
+	/*display: none;*/
+	max-width: 500px;
+	min-width: 300px;
+	max-height: 500px;
+	background: rgba(192,192,192,0.9);
+	position: fixed;
+	z-index: 1000;
+	top: 100px;
+	right: 10px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	cursor: move;
+	font-family: "Times New Roman",KaiTi,Serif; /*字体*/
+	/*color: rgba(0,0,0,0.5);*/
+
+	border-style: solid; /*边框*/
+	border-color: rgba(255,255,255,0);
+	border-width: 5px;
+	border-radius: 5px;
+
+	-webkit-touch-callout: none; /*禁止选中文本*/
+	-moz-user-select: none; /*火狐*/
+	-webkit-user-select: none;  /*webkit浏览器*/
+	-ms-user-select: none;   /*IE10*/
+	-khtml-user-select: none; /*早期浏览器*/
+
+	user-select: none;
+	transition: background 0.5s;
+}
+#translate_show::-webkit-scrollbar { width: 0 !important } /*隐藏滚动条*/
+
+#translate_show:hover {
+	background: #FFE4C4;
+	overflow-y: scroll;
+	opacity: 0.9;
+}
+
+#pre_text {
+	opacity: 0.5;
+	transition: 0.5s;
+}
+
+#pre_text:hover {
+	opacity: 1;
+}
+
+#trans_text {
+	opacity: 0.7;
+	transition: 0.5s;
+}
+
+#trans_text:hover {
+	opacity: 1;
+}
+
+#translate_close_btn {
+	background: rgba(255,255,255,0.1);
+	height: 20px;
+	line-height: 20px;
+	font-family: "Times New Roman",KaiTi,Serif;
+	border-radius: 3px;
+	margin-top: 5px;
+	text-align: center;
+	cursor: pointer;
+	opacity: 0.5;
+	transition: 0.3s;
+}
+
+@keyframes twinkling {
+    0% {
+        opacity: 0.8;
+        color: rgba(0,0,0,1);
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        color: rgba(255,255,255,1);
+        transform: scale(0.96);
+    }
+
+    100% {
+        opacity: 0.8;
+        color: rgba(0,0,0,1);
+        transform: scale(1);
+    }
+}
+#translate_close_btn:hover {
+	background: rgba(255,0,0,0.8);
+	opacity: 1;
+	border-radius: 10px;
+	animation: twinkling 1s infinite ease-in-out;
+}
+
+#for_copy {
+	/*height: 0;*/
+	position: absolute;
+	top: -999px;
+	left: -999px;
+}
+
+
+.oneMessage_pre {
+	background: rgba(73,133,69,0.6);
+}
+.oneMessage_trans {
+	background: rgba(40,183,183,0.6);
+}
+
+.oneMessage {
+	clear: both;
+	width:fit-content;
+	padding: 5px 10px;
+	border-radius: 10px;
+	margin-top: 5px;
+	color: #ffffff;
+	float: right;
+}
+
+#message_show {
+	max-width: 500px;
+	min-width: 100px;
+	max-height: 500px;
+	background: rgba(255,255,255,0);
+	position: fixed;
+	z-index: 1000;
+	bottom: 10px;
+	right: 10px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	font-family: "Times New Roman",KaiTi,Serif; /*字体*/
+	/*color: rgba(0,0,0,0.5);*/
+
+	-webkit-touch-callout: none; /*禁止选中文本*/
+	-moz-user-select: none; /*火狐*/
+	-webkit-user-select: none;  /*webkit浏览器*/
+	-ms-user-select: none;   /*IE10*/
+	-khtml-user-select: none; /*早期浏览器*/
+
+	user-select: none;
+	transition: background 0.5s;
+}

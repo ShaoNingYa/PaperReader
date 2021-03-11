@@ -1,0 +1,124 @@
+html{
+    user-select: none;
+}
+#mainBody{
+    width: 100%;
+}
+#conditionSelect{
+    width: calc(100% - 20px);
+    min-height: 100px;
+    /*background-color: rgba(255, 0, 0, 0.41);*/
+    overflow: auto;
+    padding: 10px;
+    border: solid 1px #c3c3c3;
+}
+.conditionSelectOneOption{
+    width: 100%;
+    /*min-height: 60px;*/
+    /*background-color: rgba(154, 141, 136, 0.55);*/
+    margin: 10px;
+    /*margin-bottom: 10px;*/
+}
+.conditionSelectTitle{
+    width: 60px;
+    font-size: 20px;
+    min-height: 30px;
+    text-align: center;
+    float: left;
+    clear: both;
+    /*background-color: rgba(0, 116, 217, 0.56);*/
+}
+.codeLanguageChoice{
+    padding: 2px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 20px;
+    margin: 3px;
+    height: 20px;
+    /*background-color: rgba(106, 154, 58, 0.54);*/
+    cursor: pointer;
+    float: left;
+    color: #3838387a;
+}
+.codeTagChoice{
+    padding: 2px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 20px;
+    margin: 3px;
+    height: 20px;
+    /*background-color: rgba(106, 154, 58, 0.54);*/
+    cursor: pointer;
+    float: left;
+    color: #3838387a;
+}
+.codeLanguageChoiceIs{
+    color: #ff0000;
+}
+.codeTagChoiceIs{
+    color: #ff0000;
+}
+
+#mainBodyCodeShow{
+    margin-top: 10px;
+    clear: both;
+    width: 100%;
+    min-height: 300px;
+    /*padding-top: 10px;*/
+    /*background-color: rgba(0, 102, 187, 0.37);*/
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.OneCodeShow{
+    clear: both;
+    width: 100%;
+    padding: 10px;
+    min-height: 100px;
+    margin-top: 10px;
+    background-color: #d2d2d2;
+    overflow: auto;
+}
+.OneCodeShowName{
+    font-size: 30px;
+    float: left;
+    color: #000000;
+}
+.OneCodeShowAuthor{
+    font-size: 20px;
+    float: left;
+    line-height: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.OneCodeShowLanguage{
+    /*clear: both;*/
+    /*float: left;*/
+    font-size: 20px;
+    line-height: 50px;
+}
+.OneCodeShowExplain{
+    clear: both;
+    width: 95%;
+    font-size: 18px;
+    text-indent: 20px;
+}
+.OneCodeShowTag{
+    clear: both;
+    margin-top: 10px;
+}
+.OneCodeShowTagTitle{
+    font-size: 16px;
+    color: #000000;
+    float: left;
+    margin-left: 50px;
+}
+.OneCodeShowTagOneTag{
+    cursor: pointer;
+    float: left;
+    font-size: 16px;
+    margin-right: 5px;
+    color: #6c6c6c;
+}
+.OneCodeShowTagOneTag:hover{
+    color: #000;
+}

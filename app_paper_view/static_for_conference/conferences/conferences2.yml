@@ -1,0 +1,332 @@
+---
+
+- title: MCSoC
+  year: 2020
+  id: mcsoc20
+  link: http://mcsoc-forum.org/
+  deadline: '2020-05-01 12:59:59'
+  timezone: Etc/GMT+1
+  date: December 20-23, 2020
+  place: Singapore
+  sub: CA
+  note: <b>Call for Papers:</b> <a href='http://mcsoc-forum.org/2020/call-for-paper/'>HTML</a>.
+
+- title: ICCAD
+  year: 2020
+  id: iccad20
+  link: https://www.iccad.com/
+  deadline: '2020-05-21 16:59:00'
+  timezone: Etc/GMT-7
+  date: November 2-5 2020
+  place: San Diego, CA, USA
+  sub: ES
+  note: <b>Call for Papers:</b> <a href='https://www.iccad.com/2019_call_for_paper'>PDF</a>.
+
+- title: FDL
+  year: 2020
+  id: fdl20
+  link: http://fdl-conference.org/
+  deadline: '2020-05-22 12:59:59'
+  timezone: Etc/GMT
+  date: September 7-9, 2020
+  place: Kiel, Germany
+  sub: ES
+  note: <b>Call for Papers:</b> <a href='http://fdl-conference.com/doc/CFP.pdf'>PDF</a>.
+
+- title: RTSS
+  year: 2020
+  id: rtss20
+  link: http://2020.rtss.org/
+  deadline: '2020-05-28 11:59:00'
+  timezone: Etc/GMT
+  date: December 1-4, 2020
+  place: Houston, Texas, USA
+  sub: TA
+  note: <b>Call for Papers:</b> <a href='http://2020.rtss.org/call-for-papers/'>HTML</a>.
+
+- title: HiPEAC
+  year: 2020
+  id: hipeac2020
+  link: http://hipeac.net/conference
+  deadline: '2020-06-01 23:59:59'
+  timezone: Etc/GMT-1
+  date: Jan 20-22, 2020
+  place: Bologna, Italy
+  sub: ES
+  note: <b>Call for Papers:</b> <a href='http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=86354'>HTML</a>.
+
+- title: LPIRC
+  year: 2019
+  id: lpirc19
+  link: https://rebootingcomputing.ieee.org/lpirc
+  deadline: '2019-04-30 23:59:59'
+  timezone: Etc/GMT+8
+  date: June 17, 2019
+  place: Long Beach, California, USA
+  sub: LP
+  note: <b>Call for Papers:</b> <a href='https://rebootingcomputing.ieee.org/lpirc/grand-challenge-in-low-power-computer-vision'>HTML</a>.
+
+- title: HPCA
+  year: 2020
+  id: hpca2020
+  link: https://www.hpca-conf.org/2020/
+  deadline: '2019-07-30 23:59:59'
+  timezone: Etc/GMT-7
+  date: February 2020
+  place: San Diego, CA, USA
+  sub: CA
+  note: <b>Call for Papers:</b> <a href='https://www.hpca-conf.org/2020/?page_id=47'>HTML</a>.
+
+- title: ICCV (Low-Power Computer Vision Workshop)
+  year: 2019
+  id: iccv2019
+  link: https://rebootingcomputing.ieee.org/lpirc
+  deadline: '2019-07-31 23:59:59'
+  timezone: Asia/Seoul
+  date: Oct 28, 2019
+  place: Seoul, Korea
+  sub: LP
+  note: <b>Call for Papers:</b> <a href=''https://rebootingcomputing.ieee.org/lpirc>HTML</a>.
+
+- title: ASPLOS
+  year: 2020
+  id: asplos2020
+  link: https://asplos-conference.org
+  deadline: '2019-08-09 23:59:59'
+  timezone: Etc/GMT+2
+  date: March 16-20, 2020
+  place: Lausanne, Switzerland
+  sub: CA
+  note: <b>Call for Papers:</b> <a href='https://asplos-conference.org/wp-content/uploads/2019/05/asplos2020-cfp.pdf'>PDF</a>.
+
+- title: DATE
+  year: 2020
+  id: date2020
+  link: https://www.date-conference.com
+  deadline: '2019-09-08 23:59:59'
+  timezone: Europe/Paris
+  date: Mar 9-13, 2020
+  place: Grenonble, France
+  sub: ES
+  note: <b>Call for Papers:</b> <a href='https://www.date-conference.com/call-for-papers'>HTML</a>.
+
+- title: ISPASS
+  year: 2020
+  id: ispass2020
+  link: https://www.ispass.org/ispass2020/
+  deadline: '2019-10-03 23:59:59'
+  timezone: Etc/GMT-4
+  date: April 5-7, 2020
+  place: Boston, Massachusetts, USA
+  sub: TA
+  note: <b>Call for Papers:</b> <a href='https://www.ispass.org/ispass2020'>HTML</a>.
+
+- title: ICPE
+  year: 2020
+  id: icpe2020
+  link: https://icpe2020.spec.org
+  deadline: '2019-10-11 23:59:59'
+  timezone: Etc/GMT-7
+  date: Apr 20-24, 2020
+  place: Edmonton, Canada
+  sub: TA
+  note: <b>Call for Papers:</b> <a href='https://icpe2020.spec.org/assets/ICPE_2020_CFC_v3.pdf'>PDF</a>.
+
+- title: RTAS
+  year: 2020
+  id: rtas20
+  link: http://2020.rtas.org
+  deadline: '2019-10-23 23:59:00'
+  timezone: Europe/Berlin
+  date: April 21-24, 2020
+  place: Sydney, Australia
+  sub: TA
+  note: <b>Call for Papers:</b> <a href='http://2020.rtas.org/submissions/call-for-papers/'>HTML</a>.
+
+- title: ESOP
+  year: 2020
+  id: esop200
+  link: https://www.etaps.org/2020/esop
+  deadline: '2019-10-24 23:59:00'
+  timezone: Europe/Berlin
+  date: Apr 25-1 May, 2020
+  place: Dublin, Ireland
+  sub: SE
+  note: <b>Call for Papers:</b> <a href='https://www.etaps.org/2020/call-for-papers'>HTML</a>.
+
+- title: ISCA
+  year: 2020
+  id: isca2020
+  link: https://iscaconf.org/isca2020/
+  deadline: '2019-11-19 23:59:59'
+  timezone: Etc/GMT-2
+  date: May 30 - June 3, 2020
+  place: Valencia, Spain
+  sub: CA
+  note: <b>Call for Papers:</b> <a href='https://www.iscaconf.org/isca2020/submit/papers.html'>HTML</a>.
+
+- title: DAC
+  year: 2020
+  id: dac2020
+  link: https://www.dac.com
+  deadline: '2019-11-21 16:59:59'
+  timezone: Etc/GMT-7
+  date: Jul 19-23, 2020
+  place: San Francisco, CA, USA
+  sub: ES
+  note: <b>Call for Papers:</b> <a href='https://www.dac.com/call-for-contributions?utm_source=iContact&utm_medium=email&utm_campaign=57th-dac-in-san-francisco&utm_content=DAC+57+Call+for+Contributions'>HTML</a>.
+
+- title: MBMV
+  year: 2020
+  id: mbmv2020
+  link: https://www.vde.com/de/veranstaltungen/veranstaltungsuebersicht/veranstaltung-detailseite?id=17451&type=vde%7Cvdb
+  deadline: '2019-12-06 23:59:59'
+  timezone: Etc/GMT-1
+  date: March 19-20, 2020
+  place: Stuttgart, Germany
+  sub: ES
+  note: <b>Call for Papers:</b> <a href='https://www.vde.com/de/veranstaltungen/veranstaltungsuebersicht/veranstaltung-detailseite?id=17451&type=vde%7Cvdb'>HTML</a>.
+
+- title: EuroLLVM
+  year: 2020
+  id: eurollvm2020
+  link: http://llvm.org/devmtg/2020-04
+  deadline: '2020-01-12 10:59:59'
+  timezone: Etc/GMT-1
+  date: April 6-7, 2020
+  place: Paris, France
+  sub: ES
+  note: <b>Call for Contributions:</b> <a href='http://llvm.org/devmtg/2020-04/#cfp'>HTML</a>.
+
+- title: ICCD
+  year: 2020
+  id: iccd2020
+  link: https://waset.org/computer-design-conference-in-april-2020-in-paris
+  deadline: '2020-01-15 23:59:59'
+  timezone: Etc/GMT+1
+  date: April 16-17, 2020
+  place: Paris, France
+  sub: CA
+  note: <b>Call for Papers:</b> <a href='https://waset.org/computer-design-conference-in-april-2020-in-paris'>HTML</a>.
+
+- title: ARCS
+  year: 2020
+  id: arcs2020
+  link: http://arcs2020.itec.kit.edu
+  deadline: '2020-01-17 23:59:59'
+  timezone: Etc/GMT-1
+  date: May 25-28, 2020
+  place: Aachen, Germany
+  sub: CA
+  note: <b>Call for Papers:</b> <a href='http://arcs2020.itec.kit.edu/download/ARCS2020.pdf'>PDF</a>.
+
+- title: ECRTS
+  year: 2020
+  id: ecrts20
+  link: https://www.ecrts.org/
+  deadline: '2020-02-06 23:59:00'
+  timezone: Etc/GMT-12
+  date: July 7-10, 2020
+  place: Modena, Italy
+  sub: TA
+  note: <b>Call for Papers:</b> <a href='https://www.ecrts.org/call-for-papers/'>HTML</a>.
+
+- title: SCOPES
+  year: 2020
+  id: scopes20
+  link: https://scopesconf.org/scopes-20/
+  deadline: '2020-02-14 23:59:00'
+  timezone: Etc/GMT
+  date: May 25-26, 2020
+  place: Sankt Goar, Germany
+  sub: ES
+  note: <b>Call for Papers:</b> <a href='https://www.scopesconf.org/scopes-20/dates.php'>HTML</a>.
+
+- title: SAMOS
+  year: 2020
+  id: samosxx
+  link: http://samos-conference.com
+  deadline: '2020-02-28 23:59:59'
+  timezone: Etc/GMT-2
+  date: July 5-9, 2020
+  place: Samos Island, Greece
+  sub: ES
+  note: <b>Call for Papers:</b> <a href='https://samos-conference.com/Resources_Samos_Websites/Files_Repository_SAMOS/SAMOS_XX_CFP.pdf'>PDF</a>.
+
+- title: ISLPED
+  year: 2020
+  id: islped2020
+  link: http://www.islped.org/2020/
+  deadline: '2020-03-02 23:59:59'
+  timezone: Etc/GMT+8
+  date: August 10-12, 2020
+  place: Boston, MA, USA
+  sub: LP
+  note: <b>Call for Papers:</b> <a href='http://www.islped.org/2020/files/ISLPED2020_CFP_v1.0-Nov2019.pdf'>PDF</a>.
+
+- title: MICRO
+  year: 2020
+  id: micro53
+  link: https://www.microarch.org/micro53/
+  deadline: '2020-03-27 23:59:59'
+  timezone: Etc/GMT-7
+  date: October 17-21, 2020
+  place: Athens, Greece
+  sub: CA
+  note: <b>Call for Papers:</b> <a href='https://www.microarch.org/micro53/submit/cfp.pdf'>PDF</a>.
+
+- title: ASAP
+  year: 2020
+  id: asap2020
+  link: https://asap2020.cs.manchester.ac.uk
+  deadline: '2020-03-27 23:59:59'
+  timezone: Etc/GMT
+  date: July 6-8, 2020
+  place: Manchester, UK
+  sub: CA
+  note: <b>Call for Papers:</b> <a href='https://asap2020.cs.manchester.ac.uk/ASAP2020_CFP.pdf'>PDF</a>.
+
+- title: LCTES
+  year: 2020
+  id: lctes2020
+  link: https://conf.researchr.org/home/LCTES-2020
+  deadline: '2020-03-30 10:59:59'
+  timezone: Etc/GMT-1
+  date: June 15-20, 2020
+  place: London, UK
+  sub: ES
+  note: <b>Call for Papers:</b> <a href='https://conf.researchr.org/home/LCTES-2020#Call-for-Papers'>HTML</a>.
+
+- title: DSD
+  year: 2020
+  id: dsd2020
+  link: https://dsd-seaa2020.um.si/dsd/index.html
+  deadline: '2020-04-01 23:59:59'
+  timezone: Etc/GMT+2
+  date: August 26-28, 2020
+  place: "Portoroz\u030C, Slovenia"
+  sub: ES
+  note: <b>Call for Papers:</b> <a href='https://dsd-seaa2020.um.si/dsd/CfP.pdf'>PDF</a>.
+
+- title: CASES
+  year: 2020
+  id: cases2020
+  link: https://www.esweek.org/cases/about
+  deadline: '2020-04-04 12:59:59'
+  timezone: Etc/GMT+1
+  date: Oct 11-16, 2019
+  place: Shanghai, CN
+  sub: ES
+  note: <b>Call for Papers:</b> <a href='https://esweek.org/sites/default/files/CASES_2020_CFP.pdf'>PDF</a>.
+
+- title: CODES+ISSS
+  year: 2020
+  id: codesisss2020
+  link: https://www.esweek.org/codes/about
+  deadline: '2020-04-04 12:59:59'
+  timezone: Etc/GMT+1
+  date: Oct 11-16, 2019
+  place: Shanghai, CN
+  sub: ES
+  note: <b>Call for Papers:</b> <a href='https://esweek.org/sites/default/files/CODES_ISSS_2020_CFP.pdf'>PDF</a>.
+

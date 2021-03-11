@@ -1,0 +1,25 @@
+#rightClickContent {
+    display: none;
+    width: 150px;
+    height: 200px;
+    background-color: rgba(60, 137, 214, 0.44);
+    position: fixed;
+    border: 10px;
+    overflow: hidden;
+    /*transition: height 1s;*/
+}
+.rightClickContentText {
+    height: 25px;
+    margin-top: 2px;
+    cursor: pointer;
+    text-indent: 15px;
+    line-height: 25px;
+    transition: 0.2s;
+}
+.rightClickContentText:hover {
+    background-color: #3C89D6;
+}
+ul,li{ margin:0; padding:0; list-style:none; font-size:12px;}
+.popup_menu{position:absolute; z-index:90; border:1px solid #AEAEAE; padding:2px; width:80px;border-radius:5px;}
+.popup_menu a{ background-color: rgba(255, 255, 255, 0.73);display:block; color:#325B8E; text-indent:12px; text-decoration:none; height:26px; line-height:25px; padding-right:5px;}
+.popup_menu a:hover{ background:#57B4E4; color:#fff; border-radius:5px;}

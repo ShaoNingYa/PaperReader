@@ -1,0 +1,88 @@
+#mainShowBodyControl {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    /*background-color: #43a7fd;*/
+    left: -110px;
+    top: 160px;
+    text-align: center;
+}
+.isCurrentChoice{
+    color: rgba(0, 116, 217, 0.52);
+}
+.mainShowBodyControlChoice{
+    width: 100%;
+    font-size: 20px;
+    text-decoration: none;
+    /*background-color: rgba(210, 210, 210, 0.37);*/
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.mainShowBodyControlChoice:hover{
+    background-color: rgba(210, 210, 210, 0.93);
+}
+
+.mainShowBodyControlChoiceIs{
+    width: 100%;
+    font-size: 20px;
+    text-decoration: none;
+    background-color: rgba(197, 197, 197, 0.73);
+    display: block;
+    color: rgba(255, 253, 254, 0.83);
+    /*cursor: pointer;*/
+    transition: 0.5s;
+}
+
+#mainShowTitleShow {
+    width: 100%;
+    height: 120px;
+    /*background-color: rgba(187, 84, 99, 0.35);*/
+    padding-top: 15px;
+}
+#selfImage {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 3px gainsboro inset;
+    cursor: pointer;
+}
+#mainShowTitleShowLeft{
+    float: left;
+}
+#mainShowTitleShowRight{
+    float: left;
+    padding-left: 20px;
+    width: 60%;
+}
+#mainShowTitleShowRightName{
+    color: #0074d9;
+    font-size: 45px;
+    width: 100%;
+    /*background-color: rgba(209, 204, 69, 0.75);*/
+}
+#mainShowTitleShowRightBar{
+    width: 100%;
+    height: 50px;
+    /*background-color: #0074d9;*/
+    margin-top: 0;
+}
+.mainShowTitleShowRightBarChoice{
+    width: 10px;
+    height: 10px;
+    /*background-color: #025aa5;*/
+    margin-right: 5px;
+    font-size: 20px;
+    line-height: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.2s;
+}
+.mainShowTitleShowRightBarChoice:hover{
+    color: #0074d9;
+}
+#mainShowBodyShow{
+    width: 100%;
+    /*height: 300px;*/
+    /*background-color: #0066bb;*/
+}

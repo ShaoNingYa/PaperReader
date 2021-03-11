@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+    <link rel="stylesheet" href="css/baseInitSet.css"/>
+    <!--/static/login/-->
+    <link rel="stylesheet" href="css/loginSet.css"/>
+    <script src="js/jquery-1.8.1.min.js"></script>
+</head>
+<body>
+<div class="loginBaseShow" id="loginBaseShowPart1">
+    <div id="loginBaseShowTitle" class="noSelect">登入校内代码共享管理平台</div>
+    <div class="loginItem">
+        <div class="loginItemLeftPart noSelect">
+            用户名：
+        </div>
+        <div class="loginItemRightPart">
+            <input type="text" name="loginUser" id="loginUser" maxlength="30" tabindex="1" class="loginInput" placeholder="请输入【邮箱】或【学号】"/>
+        </div>
+    </div>
+    <div class="loginItem">
+        <div class="loginItemLeftPart noSelect">
+            密码：
+        </div>
+        <div class="loginItemRightPart">
+            <input type="password" name="loginPassword" id="loginPassword" maxlength="20" tabindex="2" class="loginInput" placeholder="请输入【密码】"/>
+        </div>
+    </div>
+    <!--<div class="loginItem">-->
+        <!--<div class="loginItemLeftPart noSelect">-->
+            <!--验证码：-->
+        <!--</div>-->
+        <!--<div class="loginItemRightPart">-->
+            <!--<input type="text" name="loginConfirm" id="loginConfirm" maxlength="6" tabindex="4" class="loginConfirm" placeholder="六位验证码"-->
+                    <!--disabled/>-->
+            <!--<input type="button" id="loginGetConfirm" value="获取验证码" tabindex="3"/>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div style="width: 65%;margin: 0 auto;"><input type="button" id="loginSubmit" value="立即登录" tabindex="3" disabled/></div>
+</div>
+</body>
+<script src="js/getConfirmCode.js"></script>
+</html>

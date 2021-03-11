@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>校内代码共享管理平台</title>
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+    <link rel="stylesheet" href="/static/selfPart/css/cssInIndex.css"/>
+    <link rel="stylesheet" href="/static/selfPart/font/iconfont.css"/>
+    <link rel="stylesheet" href="/static/selfPart/font/fontByNewInfo/iconfont.css"/>
+    <link rel="stylesheet" href="/static/selfPart/css/scroll.css"/>
+    <link rel="stylesheet" href="/static/selfPart/css/selfPartMainBodySet.css"/>
+    <script type="text/javascript" src="/static/selfPart/js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="/static/selfPart/js/jsforindex.js"></script>
+
+    <link rel="stylesheet" href="/static/selfPart/css/mainShowBodyShowCodeManage.css"/>
+    <link rel="stylesheet" href="/static/selfPart/css/mainShowBodyShowNewInf.css"/>
+    <link rel="stylesheet" href="/static/selfPart/css/mainShowBodyShowSelfSet.css"/>
+
+</head>
+<body class="noSpaceBody">
+    {% if isLogin == 0 %}
+        {% include 'cut/headLoginAndOutNoLogin.html' %}
+    {% else %}
+        {% include 'cut/headLoginAndOut.html' %}
+    {% endif %}
+<!-- <div class="top_title"><div class="widthControl"><span class="top_title_login"><a href="/logout">退出</a></span></div></div>
+<div class="top_titleLink">
+    <div class="widthControl">
+        <div class="top_titleLink_title"><i class="iconfont titleIcon" style="font-size: 40px;transition: 1s">
+            &#xe61f;</i> 在线学习网站
+        </div>
+        <div class="top_titleLink_button" title="历史"><i class="iconfont titleIcon">&#xe6b7;</i></div>
+        <div class="top_titleLink_button" title="我的"><i class="iconfont titleIcon">&#xe6a3;</i></div>
+        <div id="top_titleLink_button_search" class="top_titleLink_button" title="搜索"><input id="search_input" type="text"/><i class="iconfont titleIcon">&#xe6a4;</i></div>
+    </div>
+</div> -->
+<div id="mainShow" class="widthControl">
+    <div id="mainShow_infoPut"><a href="">公告：把 Web 页面上的段落的第一行缩进，这是一种最常用的文本格式化效果。CSS 提供了 text-indent 属性，该属性可以方便地实现文本缩进。通过使用
+        text-indent 属性，所有元素的第一行都可以缩进一个给定的长度，甚至该长度可以是负值。这个属性最常见的用途是将段落的首行缩进，下面的规则会使所有段落的首行缩进 5 em：p {text-indent:
+        5em;}注意：一般来说，可以为所有块级元素应用 text-indent，但无法将该属性应用于行内元素，图像之类的替换元素上也无法应用 text-indent
+        属性。不过，如果一个块级元素（比如段落）的首行中有一个图像，它会随该行的其余文本移动。提示：如果想把一个行内元素的第一行“缩进”，可以用左内边距或外边距创造这种效果。使用负值
+    </a></div>
+    {% include 'cut/mainBodyRightPart.html' %}
+    <div class="mainShowBody">
+        <link rel="stylesheet" href="/static/selfPart/css/codeManageOneProject.css"/>
+        <link rel="stylesheet" href="/static/selfPart/font/fontByOneVersion/iconfont.css"/>
+        <div id="mainShowBodyShowProject">
+            <div class="secondTitle">{{ codeMainInfo.codename }}</div>
+            <a href="/selfPart/codeAddNewVersion?codeManageFirstNumber={{ codeMainInfo.firstNumber }}"><div id="addNewVersion"><i class="iconfont addVersion">&#xe690;</i> 添加新版本 <i class="iconfont addVersion">&#xe690;</i></div></a>
+            {% for codeOneInfo in codeOneInfos %}
+                <div class="OneVersion">
+                    <div>
+                        <a class="OneVersionTitle1" href="/selfPart/codeOneVersion?codeManageSecondNumber={{ codeOneInfo.secondNumber }}">{{ codeOneInfo.secondNumber }}</a>
+                        <a href="{{ codeOneInfo.savePosition }}" class="codeDownload">下载</a>
+                    </div>
+                    <div><span class="OneVersionTitle2">上传时间：</span>{{ codeOneInfo.uploadTime }}</div>
+                    <div><span class="OneVersionTitle2">版本说明：</span>{{ codeOneInfo.codeExplain }}</div>
+                    <div class="codeChangeDetil" id="codeChangeDetil_{{ codeOneInfo.secondNumber }}"><span class="OneVersionTitle2">修改详情：</span>
+                        <div class="codeChangeDetilShow">
+                            <img src="/static/selfPart/imgsrc/loading1.gif" style="width:100%;border:solid 3px white;opacity:0.2">
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <script type="text/javascript" src="/static/selfPart/js/codeManageOneProject.js"></script>
+        <div style="width:100%;height:100px;"></div>
+    </div>
+</div>
+</body>
+<!-- <script type="text/javascript" src="/static/selfPart/js/mainBodyShowCodeManage.js"></script>
+<script type="text/javascript" src="/static/selfPart/js/mainBodyShowChange.js"></script>
+<script type="text/javascript" src="/static/selfPart/js/mainBodyShowSelfSet.js"></script>
+<script type="text/javascript" src="/static/selfPart/js/selfPartGetDynamic.js"></script> -->
+</html>
+
+
