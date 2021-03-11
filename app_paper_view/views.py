@@ -130,7 +130,7 @@ def paper_mine(request):
 
 def paper_conference(request):
     from app_paper_view.static_for_conference.process import get_data
-    data = get_data(pre_path="app_paper_view/static_for_conference/")
+    data = get_data(pre_path="/home/ubuntu/my_pro/PaperReader/app_paper_view/static_for_conference/")  # 在部署到apache服务器上后修改成完整路径
     sub_label = list(set([data_one['sub'] for data_one in data]))
     sub_label = [{"text": sub_one, "value": sub_one} for sub_one in sub_label]
     return HttpResponse(json.dumps({"code": 20000, "data": data, "sub_label": sub_label}))
