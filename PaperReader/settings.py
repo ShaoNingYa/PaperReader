@@ -91,7 +91,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'paper_reader',
-        'USER': 'root',
+        'USER': 'pr_user',
         'PASSWORD': '123456',
         'HOST': '127.0.0.1',
         'PORT': '3306',
