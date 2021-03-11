@@ -25,7 +25,7 @@ def history(request):
         his_one = {
             "paper_id": str(data_one.paper_name.id),
             "paper_title": str(data_one.paper_name.name),
-            "paper_path": str(data_one.paper_name.paper_file).replace("static_files/paper_file_save/", ""),
+            "paper_path": str(data_one.paper_name.paper_file).split("static_files/paper_file_save/")[-1]  #.replace("static_files/paper_file_save/", ""),
             "paper_user": str(data_one.sub_user.username),
             "paper_data": str(data_one.add_time.strftime("%Y-%m-%d %H:%M:%S")),
             "paper_info": str(data_one.get_add_type_display()),
@@ -113,7 +113,7 @@ def paper_mine(request):
                 "paper_sub_user": str(data_one.sub_user),
                 "paper_conference": str(data_one.conference),
                 "paper_history": getHistoryPageByPaper(data_one),
-                "paper_path": str(data_one.paper_file).replace("static_files/paper_file_save/", ""),
+                "paper_path": str(data_one.paper_file).split("static_files/paper_file_save/")[-1]  #.replace("static_files/paper_file_save/", ""),
                 "paper_data_upload": int(data_one.add_time.timestamp()),
             }
 
