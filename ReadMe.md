@@ -127,9 +127,9 @@
 # 部署：
 - `GRANT ALL PRIVILEGES ON paper_reader.* TO user_pr@"%" IDENTIFIED BY "123456";`
 - 修改setting.py 添加https
-    
+  
 - 执行的命令更改为：`python manage.py runserver_plus --cert server.crt 0.0.0.0 8000`
-    
+  
 - 将项目部署到Apache服务器上：
   - 增加配置文件到：`/etc/apache2/sites-available/paper-reader.conf`
 
@@ -230,3 +230,17 @@
     ```
   
 - 会议提醒出现网络错误，因为路径问题，在服务器上部署之后，python工作路径变成了 `/`，所以要将相对路径改为绝对路径（在view中）
+
+# 其他问题：
+
+- 上传PDF时，文件名为中文导致上传失败的问题：
+
+  - 在views.py中加入:
+
+    ```python
+    import sys  
+    reload(sys)  
+    sys.setdefaultencoding('utf8') 
+    ```
+
+    

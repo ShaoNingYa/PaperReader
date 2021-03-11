@@ -1,3 +1,8 @@
+
+import sys  
+reload(sys)  
+sys.setdefaultencoding('utf8') 
+
 import json
 from django.shortcuts import render
 from django.http import HttpResponse
