@@ -235,10 +235,6 @@
 
 - 上传PDF时，文件名为中文导致上传失败的问题：
 
-  - 在views.py中加入:
-
-    ```python
-    # coding: utf-8
-    ```
+  - 未能解决 TODO
 
     
