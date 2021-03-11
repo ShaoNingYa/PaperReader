@@ -238,9 +238,7 @@
   - 在views.py中加入:
 
     ```python
-    import sys  
-    reload(sys)  
-    sys.setdefaultencoding('utf8') 
+    # coding: utf-8
     ```
 
     
