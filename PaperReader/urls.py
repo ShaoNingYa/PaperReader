@@ -23,6 +23,7 @@ urlpatterns = [
     # path(r'', xadmin.site.urls),
     path('xadmin/', xadmin.site.urls),
     path('admin/', admin.site.urls),
+    path('study/', include("app_study_view.urls")),
     path('paper/', include("app_paper_view.urls")),
     path('user/', include("app_user_manage.urls")),
 ]

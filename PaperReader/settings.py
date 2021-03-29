@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'xadmin',
     'corsheaders',
     'crispy_forms',
+    'app_study_view.apps.AppStudyViewConfig',
     'app_paper_view.apps.AppPaperViewConfig',
     'app_user_manage.apps.AppUserManageConfig',
 ]

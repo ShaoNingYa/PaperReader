@@ -1,6 +1,6 @@
 # ***重写返回值，要带状态码***
 # 后端
-## APP-用户管理-user_manger
+## APP-user_manger
 - 进行用户的管理
     - 登录
         - 路径：/user/login
@@ -24,7 +24,7 @@
     - 修改头像 **TODO**
     - 删除账号 **TODO**
       
-## APP-论文管理-paper_manger
+## APP-paper_manger
 - 进行论文信息的增删改查
     - 上传一篇论文的文件（PDF）
         - 路径：/paper/paper_pdf_upload
@@ -133,6 +133,8 @@
         - 参数：用户Token **TODO**
         - 返回：看到哪一页，缩放的大小（根据时间排序，返回最新的结果） **TODO**
 
-        
+# APP-study_manger
 
-        
+- 今日待办 **TODO**
+  - 获取所有日期的待办 **TODO**
+  - 更新当天的待办（整体更新，包含增删改，如果数据库中有当天，就覆盖，没有就新增） **TODO**
