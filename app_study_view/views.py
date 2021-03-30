@@ -36,8 +36,9 @@ def todolist_get_today(request):
         todolist_today.append(todo_one.copy())
     return HttpResponse(json.dumps({"code": 20000, "date": time.strftime("%Y-%m-%d"), "data": todolist_today}))
 
+
 @csrf_exempt
-def todolist_get_today(request):
+def todolist_update_today(request):
     """对今日待办进行更新
     :param request:
     :return:
@@ -49,4 +50,3 @@ def todolist_get_today(request):
     data_get_from_db = models.ToDoList.objects.all().filter(sub_user=username)  # 获取数据库中当前用户的TODOList
     obj = data_get_from_db.filter(time=date.today())
     print(len(obj), obj)
-
