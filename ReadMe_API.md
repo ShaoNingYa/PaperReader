@@ -136,5 +136,36 @@
 # APP-study_manger
 
 - 今日待办 **TODO**
-  - 获取所有日期的待办 **TODO**
+  - 获取今天的待办 **TODO**
+  
+    - 路径：/study/todolist_get_today
+  
+    - 方法：POST
+  
+    - 参数：
+  
+      - 用户Token
+  
+    - 返回：
+  
+      - 状态码：20000（成功）
+  
+      - 数据（一个json格式）：
+  
+        ```python
+           return_res = {
+                date: "2020年3月12日",
+                data: [
+                    { text: 'fork this repository', done: false },
+                    { text: 'follow author', done: false },
+                    { text: 'vue-element-admin', done: true },
+                    { text: 'vue', done: true }
+                ]
+            }
+        return HttpResponse(json.dumps({"code": 20000, "data": return_res}))
+        ```
+  
+        
+  
   - 更新当天的待办（整体更新，包含增删改，如果数据库中有当天，就覆盖，没有就新增） **TODO**
+

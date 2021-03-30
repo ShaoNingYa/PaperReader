@@ -2,67 +2,26 @@ import xadmin
 from .models import *
 
 
-class PaperConferenceXadmin(object):  # 存储会议
-    list_display = ["name", "add_time"]
-    search_fields = ["name", "add_time"]
-    list_filter = ["name", "add_time"]
+class ToDoListXadmin(object):  # 待办基础数据库
+    list_display = ["sub_user", "valid_time", "content", "is_complete"]
+    search_fields = ["sub_user", "valid_time", "content", "is_complete"]
+    list_filter = ["sub_user", "valid_time", "content", "is_complete"]
     model_icon = "fa fa-link"
 
+xadmin.site.register(ToDoList, ToDoListXadmin)
 
-class PaperBaseManageXadmin(object):
-    list_display = ["name", "author", "sub_user", "conference", "conference_year", "paper_file", "add_time"]
-    search_fields = ["name", "author", "sub_user", "conference", "conference_year", "paper_file", "add_time"]
-    list_filter = ["name", "author", "sub_user", "conference", "conference_year", "paper_file", "add_time"]
-    model_icon = "fa fa-th-list"
+class TemplateForTODOmanageXadmin(object):  # 模板管理数据库
+    list_display = ["sub_user", "name", "describe", "is_shared", "add_time"]
+    search_fields = ["sub_user", "name", "describe", "is_shared", "add_time"]
+    list_filter = ["sub_user", "name", "describe", "is_shared", "add_time"]
+    model_icon = "fa fa-link"
 
+xadmin.site.register(TemplateForTODOmanage, TemplateForTODOmanageXadmin)
 
-class PaperKeywordXadmin(object):  # 存储论文关键字
-    list_display = ["keyword", "add_time"]
-    search_fields = ["keyword", "add_time"]
-    list_filter = ["keyword", "add_time"]
-    model_icon = "fa fa-key"
+class ToDoListTemplateXadmin(object):  # TODO的模板
+    list_display = ["sub_template", "sub_user", "content", "add_time"]
+    search_fields = ["sub_template", "sub_user", "content", "add_time"]
+    list_filter = ["sub_template", "sub_user", "content", "add_time"]
+    model_icon = "fa fa-link"
 
-
-class PaperKeywordConnectXadmin(object):  # 存储论文关键字中的联系
-    list_display = ["paper_name", "keyword", "add_time"]
-    search_fields = ["paper_name", "keyword", "add_time"]
-    list_filter = ["paper_name", "keyword", "add_time"]
-    model_icon = "fa fa-refresh"
-
-
-class PaperReviewManageXadmin(object):  # 评论
-    list_display = ["paper_name", "sub_user", "starts", "review_text", "add_time"]
-    search_fields = ["paper_name", "sub_user", "starts", "review_text", "add_time"]
-    list_filter = ["paper_name", "sub_user", "starts", "review_text", "add_time"]
-    model_icon = "fa fa-comments-o"
-
-
-class PaperTransCodeManageXadmin(object):  # 翻译和代码(原论文的代码)
-    list_display = ["paper_name", "sub_user", "add_time", "trans_file"]
-    search_fields = ["paper_name", "sub_user", "add_time", "trans_file"]
-    list_filter = ["paper_name", "sub_user", "add_time", "trans_file"]
-    model_icon = "fa fa-exchange"
-
-
-class PaperReadManageXadmin(object):  # 论文的浏览
-    list_display = ["paper_name", "sub_user", "add_time", "add_type", "read_process", "read_zoom"]
-    search_fields = ["paper_name", "sub_user", "add_time", "add_type", "read_process", "read_zoom"]
-    list_filter = ["paper_name", "sub_user", "add_time", "add_type", "read_process", "read_zoom"]
-    model_icon = "fa fa-check-square-o"
-
-
-class PaperCodeManageXadmin(object):  # 根据论文，用户自己编写的代码
-    list_display = ["paper_name", "sub_user", "add_time", "add_version"]
-    search_fields = ["paper_name", "sub_user", "add_time", "add_version"]
-    list_filter = ["paper_name", "sub_user", "add_time", "add_version"]
-    model_icon = "fa fa-code"
-
-
-xadmin.site.register(PaperConference, PaperConferenceXadmin)
-xadmin.site.register(PaperBaseManage, PaperBaseManageXadmin)
-xadmin.site.register(PaperKeyword, PaperKeywordXadmin)
-xadmin.site.register(PaperKeywordConnect, PaperKeywordConnectXadmin)
-xadmin.site.register(PaperReviewManage, PaperReviewManageXadmin)
-xadmin.site.register(PaperTransCodeManage, PaperTransCodeManageXadmin)
-xadmin.site.register(PaperReadManage, PaperReadManageXadmin)
-xadmin.site.register(PaperCodeManage, PaperCodeManageXadmin)
+xadmin.site.register(ToDoListTemplate, ToDoListTemplateXadmin)
