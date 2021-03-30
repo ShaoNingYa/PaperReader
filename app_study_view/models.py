@@ -12,7 +12,6 @@ class ToDoList(models.Model):  # 待办事项
     content = models.CharField(max_length=200, verbose_name="待办内容")
     is_complete = models.IntegerField(choices=((0, "未完成"), (1, "已完成")), verbose_name="是否完成")
 
-
     def __str__(self):
         return self.content
 
@@ -35,6 +34,7 @@ class TemplateForTODOmanage(models.Model):  # 待办事项的模板
         verbose_name = "模板管理"
         verbose_name_plural = verbose_name
 
+
 class ToDoListTemplate(models.Model):  # 待办事项的模板
     sub_template = models.ForeignKey(TemplateForTODOmanage, verbose_name="所属模板类", on_delete=models.CASCADE)
     sub_user = models.ForeignKey(UserProfile, verbose_name="所属用户", on_delete=models.CASCADE)
@@ -47,5 +47,3 @@ class ToDoListTemplate(models.Model):  # 待办事项的模板
     class Meta:
         verbose_name = "待办事项的模板"
         verbose_name_plural = verbose_name
-
-
