@@ -23,7 +23,7 @@ def todolist_get_today(request):
     返回今天的待办
     """
     todolist_today = []
-    is_complete = ["false", "true"]
+    is_complete = [False, True]
     data_get = models.ToDoList.objects.all().filter(
         sub_user=UserToken.objects.all().filter(user_token=request.POST.get("token"), is_alive=0)[0].username)
     for data_one in data_get:
