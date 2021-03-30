@@ -49,7 +49,8 @@ def todolist_update_today(request):
     data_get_from_db = models.ToDoList.objects.all().filter(sub_user=username)  # 获取数据库中当前用户的TODOList
     obj = data_get_from_db.filter(valid_time=date.today())  # 找到今天的
     obj.delete()  # 将所有今天的删掉
-    for data_one in data_get:
+    for data_one_str in data_get:
+        data_one = eval(data_one_str)
         models.ToDoList.objects.create(
             sub_user=username,
             content=data_one["text"],
