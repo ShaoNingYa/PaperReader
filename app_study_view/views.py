@@ -48,5 +48,5 @@ def todolist_update_today(request):
     print(data_get, user_token)
     username = UserToken.objects.all().filter(user_token=user_token, is_alive=0)[0].username
     data_get_from_db = models.ToDoList.objects.all().filter(sub_user=username)  # 获取数据库中当前用户的TODOList
-    obj = data_get_from_db.filter(time=date.today())
+    obj = data_get_from_db.filter(valid_time=date.today())
     print(len(obj), obj)
