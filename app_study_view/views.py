@@ -29,7 +29,7 @@ def todolist_get_today(request):
     for data_one in data_get:
         todo_one = {
             "text": str(data_one.content),
-            "done": str(is_complete[data_one.is_complete])
+            "done": is_complete[data_one.is_complete]
         }
         todolist_today.append(todo_one.copy())
     return HttpResponse(json.dumps({"code": 20000, "date": time.strftime("%Y-%m-%d"), "data": todolist_today}))
