@@ -21,7 +21,8 @@ class PaperBaseManage(models.Model):
     sub_user = models.ForeignKey(UserProfile, verbose_name="所属用户", on_delete=models.CASCADE)  # 哪个用户添加的此篇论文
     conference = models.ForeignKey(PaperConference, verbose_name="所属会议", on_delete=models.CASCADE)
     conference_year = models.IntegerField(verbose_name="论文年份")
-    paper_file = models.FileField(upload_to="/home/ubuntu/my_pro/PaperReader/static_files/paper_file_save", verbose_name="论文存储")
+    # paper_file = models.FileField(upload_to="/home/ubuntu/my_pro/PaperReader/static_files/paper_file_save", verbose_name="论文存储")  # 部署时换成绝对路径
+    paper_file = models.FileField(upload_to="static_files/paper_file_save", verbose_name="论文存储")  # 测试时需要使用相对路径
     add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
 
     def __str__(self):
