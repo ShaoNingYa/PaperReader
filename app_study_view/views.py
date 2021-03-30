@@ -56,4 +56,4 @@ def todolist_update_today(request):
             content=data_one["text"],
             is_complete=data_one["done"],
         )
-    return HttpResponse(json.dumps({"code": 20000, "data": "success"}))
+    return HttpResponse(json.dumps({"code": 20000, "data": data_get}))
