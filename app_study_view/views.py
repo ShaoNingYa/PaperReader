@@ -1,6 +1,7 @@
 # coding: utf-8
 import time
 import json
+from datetime import date
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -19,8 +20,9 @@ def index(request):
 
 @csrf_exempt
 def todolist_get_today(request):
-    """
-    返回今天的待办
+    """获取所有的今日待办
+    :param request:
+    :return:
     """
     todolist_today = []
     is_complete = [False, True]
@@ -33,3 +35,18 @@ def todolist_get_today(request):
         }
         todolist_today.append(todo_one.copy())
     return HttpResponse(json.dumps({"code": 20000, "date": time.strftime("%Y-%m-%d"), "data": todolist_today}))
+
+@csrf_exempt
+def todolist_get_today(request):
+    """对今日待办进行更新
+    :param request:
+    :return:
+    """
+    data_get = request.POST.get("token")  # 从前端获取TODOList
+    user_token = request.POST.get("token")
+    print(data_get, user_token)
+    username = UserToken.objects.all().filter(user_token=user_token, is_alive=0)[0].username
+    data_get_from_db = models.ToDoList.objects.all().filter(sub_user=username)  # 获取数据库中当前用户的TODOList
+    obj = data_get_from_db.filter(time=date.today())
+    print(len(obj), obj)
+
