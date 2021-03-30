@@ -45,9 +45,7 @@ def todolist_update_today(request):
     """
     data_get = request.POST.get("token")  # 从前端获取TODOList
     user_token = request.POST.get("token")
-    print(data_get, user_token)
     username = UserToken.objects.all().filter(user_token=user_token, is_alive=0)[0].username
     data_get_from_db = models.ToDoList.objects.all().filter(sub_user=username)  # 获取数据库中当前用户的TODOList
     obj = data_get_from_db.filter(valid_time=date.today())
-    print(len(obj), obj)
-    return HttpResponse(json.dumps({"code": 20000, "date": time.strftime("%Y-%m-%d"), "data": str(len(obj)) + str(obj)}))
+    return HttpResponse(json.dumps({"code": 20000, "date": time.strftime("%Y-%m-%d"), "data": str(len(obj)) + str([i.content for i in obj])}))
