@@ -51,6 +51,8 @@ def todolist_update_today(request):
     obj = data_get_from_db.filter(valid_time=date.today())  # 找到今天的
     obj.delete()  # 将所有今天的删掉
     for data_one_str in data_get.split("{end}"):
+        if not data_one_str:
+            continue
         text, done = data_one_str.strip().split(", ")
         done = True if done == "true" else False
         models.ToDoList.objects.create(
