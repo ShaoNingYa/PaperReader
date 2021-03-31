@@ -55,7 +55,7 @@ def todolist_update_today(request):
             continue
         text, done = data_one_str.strip().split(", ")
         done = True if done == "true" else False
-        models.ToDoList.objects.create(
+        models.ToDoList.objects.create(  # 创建新的ToDoList放到数据库中
             sub_user=username,
             content=text,
             is_complete=done,
