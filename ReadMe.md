@@ -145,7 +145,7 @@
 - 在这个部分现在存在中文的问题，如果上传的PDF文件是中文命名，就会出现错误，在前端体现出来的就是跨域问题（猜想应该是会返回DeBug界面，然后没有头数据，所以前端不接受）
 
 # 部署：
-- `GRANT ALL PRIVILEGES ON paper_reader.* TO user_pr@"%" IDENTIFIED BY "123456";`
+- `GRANT ALL PRIVILEGES ON paper_reader.* TO user_pr@"%" IDENTIFIED BY "123456789";`
 - 修改setting.py 添加https
   
 - 执行的命令更改为：`python manage.py runserver_plus --cert server.crt 0.0.0.0 8000`

@@ -43,17 +43,18 @@ def todolist_update_today(request):
     :param request:
     :return:
     """
-    data_get = request.POST.get("data")  # 从前端获取TODOList
+    data_get = request.POST.get("data").rstrip("{end}")  # 从前端获取TODOList
     user_token = request.POST.get("token")
     username = UserToken.objects.all().filter(user_token=user_token, is_alive=0)[0].username
     data_get_from_db = models.ToDoList.objects.all().filter(sub_user=username)  # 获取数据库中当前用户的TODOList
     obj = data_get_from_db.filter(valid_time=date.today())  # 找到今天的
     obj.delete()  # 将所有今天的删掉
-    for data_one_str in data_get:
-        data_one = eval(data_one_str)
+    for data_one_str in data_get.split("{end}"):
+        text, done = data_one_str.strip().split(", ")
+        done = True if done == "true" else False
         models.ToDoList.objects.create(
             sub_user=username,
-            content=data_one["text"],
-            is_complete=data_one["done"],
+            content=text,
+            is_complete=done,
         )
-    return HttpResponse(json.dumps({"code": 20000, "data": data_get}))
+    return HttpResponse(json.dumps({"code": 20000, "data": "success"}))
