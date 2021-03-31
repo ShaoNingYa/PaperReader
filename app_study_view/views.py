@@ -28,6 +28,7 @@ def todolist_get_today(request):
     is_complete = [False, True]
     data_get = models.ToDoList.objects.all().filter(
         sub_user=UserToken.objects.all().filter(user_token=request.POST.get("token"), is_alive=0)[0].username)
+    data_get = data_get.filter(valid_time=date.today())
     for data_one in data_get:
         todo_one = {
             "text": str(data_one.content),
