@@ -194,4 +194,44 @@
   
       - 状态码：20000（成功）
       - 数据：success
+    
+  - 获取历史待办：
+  
+    - 路径：/study/todolist_get_history
+  
+    - 方法：POST
+  
+    - 参数：
+  
+      - 用户Token
+  
+    - 返回：
+  
+      - 状态码：20000（成功）
+  
+      - 数据（一个json格式）：
+  
+        ```python
+           return_res = [{
+                date: "2020年3月12日",
+                data: [
+                    { text: 'fork this repository', done: false },
+                    { text: 'follow author', done: false },
+                    { text: 'vue-element-admin', done: true },
+                    { text: 'vue', done: true }
+                ]
+            },{
+                date: "2020年3月11日",
+                data: [
+                    { text: 'fork this repository', done: false },
+                    { text: 'follow author', done: false },
+                    { text: 'vue-element-admin', done: true },
+                    { text: 'vue', done: true }
+                ]
+            },
+           ]
+        return HttpResponse(json.dumps({"code": 20000, "data": return_res}))
+        ```
+  
+        
 

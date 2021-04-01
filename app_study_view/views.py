@@ -61,3 +61,30 @@ def todolist_update_today(request):
             is_complete=done,
         )
     return HttpResponse(json.dumps({"code": 20000, "data": "success"}))
+
+
+@csrf_exempt
+def todolist_get_history(request):
+    """获取所有的今日待办
+    :param request:
+    :return:
+    """
+    todolist_history = []
+    temp_save = {}
+    user_token = request.POST.get("token")
+    username = UserToken.objects.all().filter(user_token=user_token, is_alive=0)[0].username
+    is_complete = [False, True]
+    data_get = models.ToDoList.objects.all().filter(sub_user=username)
+    data_get = data_get.exclude(valid_time=date.today())
+    for data_one in data_get:
+        todo_one = {
+            "text": str(data_one.content),
+            "done": is_complete[data_one.is_complete]
+        }
+        cur_time = str(data_one.valid_time)
+        cur_list = temp_save.get(cur_time, [])
+        cur_list.append(todo_one.copy())
+        temp_save[cur_time] = cur_list
+    print(temp_save)
+    todolist_history = [{"date": data_one_day[0], "data": data_one_day[1]} for data_one_day in temp_save.items()][::-1]
+    return HttpResponse(json.dumps({"code": 20000, "data": todolist_history}))
