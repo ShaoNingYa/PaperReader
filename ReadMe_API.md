@@ -135,7 +135,7 @@
 
 # APP-study_manger
 
-- 今日待办 **TODO**
+- 今日待办 
   - 获取今天的待办 
   
     - 路径：/study/todolist_get_today
@@ -233,5 +233,43 @@
         return HttpResponse(json.dumps({"code": 20000, "data": return_res}))
         ```
   
-        
+  - 获取全部模板
+  
+    - 路径：/study/todolist_get_template
+  
+    - 方法：POST
+  
+    - 参数：
+  
+      - 用户Token
+  
+    - 返回：
+  
+      - 状态码：20000（成功）
+  
+      - 数据（一个json格式）：
+  
+        ```python
+           return_res = [{
+                title: "一个为了学习的模板",
+                data: [
+                    { text: 'fork this repository', done: false },
+                    { text: 'follow author', done: false },
+                    { text: 'vue-element-admin', done: true },
+                    { text: 'vue', done: true }
+                ]
+            },{
+                title: "周六日用的模板",
+                data: [
+                    { text: 'fork this repository', done: false },
+                    { text: 'follow author', done: false },
+                    { text: 'vue-element-admin', done: true },
+                    { text: 'vue', done: true }
+                ]
+            },
+           ]
+        return HttpResponse(json.dumps({"code": 20000, "data": return_res}))
+        ```
+  
+    
 

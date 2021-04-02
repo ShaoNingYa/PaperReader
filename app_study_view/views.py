@@ -88,3 +88,36 @@ def todolist_get_history(request):
     print(temp_save)
     todolist_history = [{"date": data_one_day[0], "data": data_one_day[1]} for data_one_day in temp_save.items()][::-1]
     return HttpResponse(json.dumps({"code": 20000, "data": todolist_history}))
+
+
+@csrf_exempt
+def todolist_get_template(request):
+    """获取所有的今日待办
+    :param request:
+    :return:
+    """
+    user_token = request.POST.get("token")
+    username = UserToken.objects.all().filter(user_token=user_token, is_alive=0)[0].username
+    template_obj_all = models.TemplateForTODOmanage.objects.all().filter(sub_user=username)
+    if not template_obj_all:
+        return HttpResponse(json.dumps({"code": 20000, "data": []}))
+    return_res = []
+    for template_obj_one in template_obj_all:
+        print(template_obj_one.name)
+        template_items_obj_all = models.ToDoListTemplate.objects.all().filter(sub_template=template_obj_one)
+        temp_save = []
+        for template_items_obj_one in template_items_obj_all:
+            print(template_items_obj_one.content)
+            todo_one = {
+                "text": str(template_items_obj_one.content),
+                "done": False
+            }
+            temp_save.append(todo_one)
+        template_one = {
+            "title": template_obj_one.name,
+            "data": temp_save
+        }
+        return_res.append(template_one)
+    print(return_res)
+    # todolist_template = [{"date": data_one_day[0], "data": data_one_day[1]} for data_one_day in temp_save.items()][::-1]
+    return HttpResponse(json.dumps({"code": 20000, "data": return_res}))
