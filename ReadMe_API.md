@@ -137,21 +137,21 @@
 
 - 今日待办 
   - 获取今天的待办 
-  
+
     - 路径：/study/todolist_get_today
-  
+
     - 方法：POST
-  
+
     - 参数：
-  
+
       - 用户Token
-  
+
     - 返回：
-  
+
       - 状态码：20000（成功）
-  
+
       - 数据（一个json格式）：
-  
+
         ```python
            return_res = {
                 date: "2020年3月12日",
@@ -164,21 +164,21 @@
             }
         return HttpResponse(json.dumps({"code": 20000, "data": return_res}))
         ```
-  
+
         
-  
+
   - 更新当天的待办（整体更新，包含增删改，如果数据库中有当天，就覆盖，没有就新增） 
-  
+
     - 路径：/study/todolist_update_today
-  
+
     - 方法：POST
-  
+
     - 参数：
-  
+
       - 用户Token
-  
+
       - 需要更新的数据
-  
+
         ```python
         data: [
                     { text: 'fork this repository', done: false },
@@ -187,30 +187,30 @@
                     { text: 'vue', done: true }
                 ]
         ```
-  
+
         
-  
+
     - 返回：
-  
+
       - 状态码：20000（成功）
       - 数据：success
     
   - 获取历史待办：
-  
+
     - 路径：/study/todolist_get_history
-  
+
     - 方法：POST
-  
+
     - 参数：
-  
+
       - 用户Token
-  
+
     - 返回：
-  
+
       - 状态码：20000（成功）
-  
+
       - 数据（一个json格式）：
-  
+
         ```python
            return_res = [{
                 date: "2020年3月12日",
@@ -232,26 +232,26 @@
            ]
         return HttpResponse(json.dumps({"code": 20000, "data": return_res}))
         ```
-  
+
   - 获取全部模板
-  
+
     - 路径：/study/todolist_get_template
-  
+
     - 方法：POST
-  
+
     - 参数：
-  
+
       - 用户Token
-  
+
     - 返回：
-  
+
       - 状态码：20000（成功）
-  
+
       - 数据（一个json格式）：
-  
+
         ```python
            return_res = [{
-                title: "一个为了学习的模板",
+                title: "一个用于学习的模板",
                 data: [
                     { text: 'fork this repository', done: false },
                     { text: 'follow author', done: false },
@@ -270,6 +270,32 @@
            ]
         return HttpResponse(json.dumps({"code": 20000, "data": return_res}))
         ```
-  
+
+  - 更新一个模板
+
+    - 路径：/study/todolist_update_template
+
+    - 方法：POST
+
+    - 参数：
+
+      - 用户Token
+
+      - 需要更新的数据
+
+        ```python
+        data: [
+                    { text: 'fork this repository', done: false },
+                    { text: 'follow author', done: false },
+                    { text: 'vue-element-admin', done: true },
+                    { text: 'vue', done: true }
+                ]
+        ```
+
+    - 返回：
+
+      - 状态码：20000（成功）
+      - 数据：success
+
     
 

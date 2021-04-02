@@ -103,11 +103,11 @@ def todolist_get_template(request):
         return HttpResponse(json.dumps({"code": 20000, "data": []}))
     return_res = []
     for template_obj_one in template_obj_all:
-        print(template_obj_one.name)
+        # print(template_obj_one.name)
         template_items_obj_all = models.ToDoListTemplate.objects.all().filter(sub_template=template_obj_one)
         temp_save = []
         for template_items_obj_one in template_items_obj_all:
-            print(template_items_obj_one.content)
+            # print(template_items_obj_one.content)
             todo_one = {
                 "text": str(template_items_obj_one.content),
                 "done": False
@@ -118,6 +118,36 @@ def todolist_get_template(request):
             "data": temp_save
         }
         return_res.append(template_one)
-    print(return_res)
-    # todolist_template = [{"date": data_one_day[0], "data": data_one_day[1]} for data_one_day in temp_save.items()][::-1]
+    # print(return_res)
     return HttpResponse(json.dumps({"code": 20000, "data": return_res}))
+
+
+@csrf_exempt
+def todolist_update_template(request):
+    """对模板进行更新
+    :param request:
+    :return:
+    """
+    data_get = request.POST.get("data").rstrip("{end}")  # 从前端获取TODOList
+    data_title = request.POST.get("title")
+    user_token = request.POST.get("token")
+    username = UserToken.objects.all().filter(user_token=user_token, is_alive=0)[0].username
+    print(request.POST)
+    template_manage_objs = models.TemplateForTODOmanage.objects.all().filter(sub_user=username).filter(name=data_title)
+    if not template_manage_objs:
+        # 如果没有这个，就创建一个
+        pass
+    print(template_manage_objs)
+    template_manage_obj = template_manage_objs[0]
+    models.ToDoListTemplate.objects.all().filter(sub_template=template_manage_obj).delete()
+    print("data_get", data_get)
+    for data_one_str in data_get.split("{end}"):
+        if not data_one_str:
+            continue
+        text, _ = data_one_str.strip().split(", ")  # done就不要了
+        models.ToDoListTemplate.objects.create(  # 创建新的ToDoList放到数据库中
+            sub_template=template_manage_obj,
+            sub_user=username,
+            content=text,
+        )
+    return HttpResponse(json.dumps({"code": 20000, "data": "success"}))
