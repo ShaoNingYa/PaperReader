@@ -51,7 +51,7 @@ class ToDoListTemplate(models.Model):  # 待办事项的模板
 
 class ToDoListLog(models.Model):  # 用来记录TODO的日志
     sub_user = models.ForeignKey(UserProfile, verbose_name="所属用户", on_delete=models.CASCADE)
-    content = models.CharField(max_length=200, verbose_name="待办内容")
+    content = models.CharField(max_length=16000, verbose_name="待办内容")  # max_length最大长度16383
     add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
 
     def __str__(self):
