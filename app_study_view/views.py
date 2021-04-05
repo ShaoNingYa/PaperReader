@@ -1,6 +1,7 @@
 # coding: utf-8
 import time
 import json
+import logging
 from datetime import date
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -10,7 +11,10 @@ from app_study_view import models
 from app_user_manage.models import UserToken
 from app_user_manage.models import UserProfile
 
-
+logging.basicConfig(
+    format='%(asctime)s - %(levelname)s: %(message)s',
+    level=logging.INFO)
+logger = logging.getLogger(__name__)
 # Create your views here.
 
 
@@ -45,6 +49,7 @@ def todolist_update_today(request):
     :return:
     """
     data_get = request.POST.get("data").rstrip("{end}")  # 从前端获取TODOList
+    logging.warning(data_get)
     user_token = request.POST.get("token")
     username = UserToken.objects.all().filter(user_token=user_token, is_alive=0)[0].username
     data_get_from_db = models.ToDoList.objects.all().filter(sub_user=username)  # 获取数据库中当前用户的TODOList
