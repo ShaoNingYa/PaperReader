@@ -47,3 +47,16 @@ class ToDoListTemplate(models.Model):  # 待办事项的模板
     class Meta:
         verbose_name = "待办事项的模板"
         verbose_name_plural = verbose_name
+
+
+class ToDoListLog(models.Model):  # 用来记录TODO的日志
+    sub_user = models.ForeignKey(UserProfile, verbose_name="所属用户", on_delete=models.CASCADE)
+    content = models.CharField(max_length=200, verbose_name="待办内容")
+    add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
+
+    def __str__(self):
+        return self.content
+
+    class Meta:
+        verbose_name = "待办事项的日志"
+        verbose_name_plural = verbose_name
