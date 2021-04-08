@@ -78,6 +78,7 @@ def order_pic_upload(request):
     # print(user_token, pic_file, order_id, order_name, order_remarks)
     token_obj = UserToken.objects.all().filter(user_token=user_token, is_alive=0)
     str_of_day = [(date.today() + timedelta(days=i)).strftime("%Y-%m-%d") for i in range(3)]
+    pic_file.name = time.strftime("%Y-%m-%d_") + order_id + pic_file.name.split('.')[-1]
     if token_obj and pic_file and order_name and order_id:
         # 先解析order_id
         date_of_order, time_quantum, number_of_venue, time_of_order = order_id.split("-")
