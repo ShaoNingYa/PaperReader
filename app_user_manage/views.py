@@ -18,9 +18,9 @@ def index(request):
 def login(request):  # 根据用户和密码获取token
     def valid_password(_user):
         """验证成功，返回对应的身份，否则返回none"""
-        print("获取Token", default_token_generator.make_token(_user))  # 5o3-53ae30d9ccc25d0404f7
+        # print("获取Token", default_token_generator.make_token(_user))  # 5o3-53ae30d9ccc25d0404f7
         # print("验证Token", default_token_generator.check_token(_user, "5o3-53ae30d9ccc25d0404f3"))
-        print(_user.pk, type(_user))
+        # print(_user.pk, type(_user))
         # TODO 存储到令牌表中，取出的过程要更改，比如is_alive 要进行判断，除了0还有之外的可能
         token_get = UserToken.objects.all().filter(username=_user, is_alive=0)
         if token_get:  # 如果令牌表里有令牌，且可用，就将其取出，并返回
@@ -56,5 +56,5 @@ def info(request):  # 根据token查用户
 @csrf_exempt
 def logout(request):
     if request.method == 'POST':
-        print("账户退出")
+        print("user logout")
     return HttpResponse(json.dumps({"code": 20000, "data": 'success'}))
