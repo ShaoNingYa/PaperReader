@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'crispy_forms',
     'app_study_view.apps.AppStudyViewConfig',
+    'app_activities_view.apps.AppActivitiesViewConfig',
     'app_paper_view.apps.AppPaperViewConfig',
     'app_user_manage.apps.AppUserManageConfig',
 ]

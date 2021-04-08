@@ -10,6 +10,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\app_activities_view\views.py">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\app_paper_view\models.py">
           <value>
             <Attribute>

@@ -133,7 +133,7 @@
         - 参数：用户Token **TODO**
         - 返回：看到哪一页，缩放的大小（根据时间排序，返回最新的结果） **TODO**
 
-# APP-study_manger
+## APP-study_manger
 
 - 今日待办 
   - 获取今天的待办 
@@ -298,4 +298,100 @@
       - 数据：success
 
     
+
+## APP-activities_manger
+
+- 羽毛球预定管理
+
+  - 获取所有的预定 
+
+    - 路径：/activities/order_get_all
+
+    - 方法：POST
+
+    - 参数：
+
+      - 用户Token
+      - 获取那一天的数据
+
+    - 返回：
+
+      - 状态码：20000（成功）
+
+      - 数据（一个json格式）：
+
+        ```python
+           return_res = { // 1-1-1-1: 第几天-早中晚-场馆-时间段
+                'data_morning': [
+                  {
+                    'id': 1, 'data_detail': [
+                      { 'order_id': '1-1-1-1', 'is_order': 'None' },
+                      { 'order_id': '1-1-1-2', 'is_order': 'LALA', 'pic_url': 'https:/wly1gp9zfgzfvwj30p01be12p.jpg' },
+                      { 'order_id': '1-1-1-3', 'is_order': 'None' }
+                    ]
+                  },
+                  {
+                    'id': 2, 'data_detail': [
+                      { 'order_id': '1-1-2-1', 'is_order': 'None' },
+                      { 'order_id': '1-1-2-2', 'is_order': 'None' },
+                      { 'order_id': '1-1-2-3', 'is_order': 'None' }
+                    ]
+                  }, ...
+                ],
+                'data_afternoon': [
+                  {
+                    'id': 1, 'data_detail': [
+                      { 'order_id': '1-2-1-1', 'is_order': 'None' },
+                      { 'order_id': '1-2-1-2', 'is_order': 'None' },
+                      { 'order_id': '1-2-1-3', 'is_order': 'None' },
+                      { 'order_id': '1-2-1-4', 'is_order': 'None' },
+                      { 'order_id': '1-2-1-5', 'is_order': 'None' }
+                    ]
+                  }, ...
+                ],
+                'data_night': [
+                  {
+                    'id': 1, 'data_detail': [
+                      { 'order_id': '1-3-1-1', 'is_order': 'None' },
+                      { 'order_id': '1-3-1-2', 'is_order': 'None' },
+                      { 'order_id': '1-3-1-3', 'is_order': 'None' },
+                      { 'order_id': '1-3-1-4', 'is_order': 'None' },
+                      { 'order_id': '1-3-1-5', 'is_order': 'None' }]
+                  }, ...
+                ]
+              }
+        return HttpResponse(json.dumps({"code": 20000, "data": return_res}))
+        ```
+
+        
+
+  - 更新单个预定（根据ID来进行修改，如果数据库中没有就添加）
+
+    - 路径：/activities/order_one_update
+
+    - 方法：POST
+
+    - 参数：
+
+      - 用户Token
+
+      - 需要更新的数据
+    - 返回：
+      - 状态码：20000（成功）
+
+  - 上传截图（根据ID来进行添加，如果数据库中没有就添加）
+
+    - 路径：/activities/order_pic_upload
+
+    - 方法：POST
+
+    - 参数：
+
+      - 用户Token
+
+      - 图片
+    - 返回：
+      - 状态码：20000（成功）
+
+
 
