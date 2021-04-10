@@ -1,6 +1,7 @@
 # coding: utf-8
 
 import json
+import time
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -27,7 +28,8 @@ def history(request):
         his_one = {
             "paper_id": str(data_one.paper_name.id),
             "paper_title": str(data_one.paper_name.name),
-            "paper_path": str(data_one.paper_name.paper_file).split("static_files/paper_file_save/")[-1],  #.replace("static_files/paper_file_save/", ""),
+            "paper_path": str(data_one.paper_name.paper_file).split("static_files/paper_file_save/")[-1],
+            # .replace("static_files/paper_file_save/", ""),
             "paper_user": str(data_one.sub_user.username),
             "paper_data": str(data_one.add_time.strftime("%Y-%m-%d %H:%M:%S")),
             "paper_info": str(data_one.get_add_type_display()),
@@ -105,7 +107,8 @@ def paper_mine(request):
         history_return = []
         print()
         data_get = models.PaperBaseManage.objects.all() \
-            .filter(sub_user=UserToken.objects.all().filter(user_token=request.GET.get("token"), is_alive=0)[0].username)
+            .filter(
+            sub_user=UserToken.objects.all().filter(user_token=request.GET.get("token"), is_alive=0)[0].username)
         for data_one in data_get:
             his_one = {
                 "paper_id": str(data_one.id),
@@ -115,7 +118,8 @@ def paper_mine(request):
                 "paper_sub_user": str(data_one.sub_user),
                 "paper_conference": str(data_one.conference),
                 "paper_history": getHistoryPageByPaper(data_one),
-                "paper_path": str(data_one.paper_file).split("static_files/paper_file_save/")[-1],  #.replace("static_files/paper_file_save/", ""),
+                "paper_path": str(data_one.paper_file).split("static_files/paper_file_save/")[-1],
+                # .replace("static_files/paper_file_save/", ""),
                 "paper_data_upload": int(data_one.add_time.timestamp()),
             }
 
@@ -132,7 +136,8 @@ def paper_mine(request):
 
 def paper_conference(request):
     from app_paper_view.static_for_conference.process import get_data
-    data = get_data(pre_path="/home/ubuntu/my_pro/PaperReader/app_paper_view/static_for_conference/")  # 在部署到apache服务器上后修改成完整路径
+    data = get_data(
+        pre_path="/home/ubuntu/my_pro/PaperReader/app_paper_view/static_for_conference/")  # 在部署到apache服务器上后修改成完整路径
     sub_label = list(set([data_one['sub'] for data_one in data]))
     sub_label = [{"text": sub_one, "value": sub_one} for sub_one in sub_label]
     return HttpResponse(json.dumps({"code": 20000, "data": data, "sub_label": sub_label}))
@@ -143,6 +148,10 @@ def paper_upload_file(request):
     print("先上传文件")
     user_token = request.POST.get('token')
     pdf_file = request.FILES.get('file')
+    file_type = pdf_file.name.split('.')[-1]
+    if not file_type == "pdf":  # 上传文件如果不是PDF格式，直接返回
+        return HttpResponse(json.dumps("fail"))
+    pdf_file.name = time.strftime("%Y-%m-%d-%H-%M-%S.") + file_type
     token_obj = UserToken.objects.all().filter(user_token=user_token, is_alive=0)
     if token_obj:
         if pdf_file:
