@@ -30,6 +30,20 @@ class PaperKeywordConnectXadmin(object):  # 存储论文关键字中的联系
     model_icon = "fa fa-refresh"
 
 
+class PaperLabelXadmin(object):  # 存储论文关键字
+    list_display = ["sub_user", "label_text", "add_time"]
+    search_fields = ["sub_user", "label_text", "add_time"]
+    list_filter = ["sub_user", "label_text", "add_time"]
+    model_icon = "fa fa-key"
+
+
+class PaperLabelConnectXadmin(object):  # 存储论文关键字
+    list_display = ["sub_user", "sub_paper", "sub_label", "add_time"]
+    search_fields = ["sub_user", "sub_paper", "sub_label", "add_time"]
+    list_filter = ["sub_user", "sub_paper", "sub_label", "add_time"]
+    model_icon = "fa fa-key"
+
+
 class PaperReviewManageXadmin(object):  # 评论
     list_display = ["paper_name", "sub_user", "starts", "review_text", "add_time"]
     search_fields = ["paper_name", "sub_user", "starts", "review_text", "add_time"]
@@ -66,3 +80,5 @@ xadmin.site.register(PaperReviewManage, PaperReviewManageXadmin)
 xadmin.site.register(PaperTransCodeManage, PaperTransCodeManageXadmin)
 xadmin.site.register(PaperReadManage, PaperReadManageXadmin)
 xadmin.site.register(PaperCodeManage, PaperCodeManageXadmin)
+xadmin.site.register(PaperLabel, PaperLabelXadmin)
+xadmin.site.register(PaperLabelConnect, PaperLabelConnectXadmin)

@@ -118,3 +118,30 @@ class PaperCodeManage(models.Model):  # 根据论文，用户自己编写的代�
     class Meta:
         verbose_name = "论文用户自定义代码"
         verbose_name_plural = verbose_name
+
+
+class PaperLabel(models.Model):  # 论文所属的标签
+    sub_user = models.ForeignKey(UserProfile, verbose_name="所属用户", on_delete=models.CASCADE)  # 哪个用户添加的此标签
+    label_text = models.CharField(max_length=10, verbose_name="标签内容")
+    add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
+
+    def __str__(self):
+        return self.label_text
+
+    class Meta:
+        verbose_name = "论文所属的标签"
+        verbose_name_plural = verbose_name
+
+
+class PaperLabelConnect(models.Model):  # 论文所属的标签的多对多关联
+    sub_user = models.ForeignKey(UserProfile, verbose_name="所属用户", on_delete=models.CASCADE)  # 哪个用户添加的此标签关联
+    sub_paper = models.ForeignKey(PaperBaseManage, verbose_name="所属论文", on_delete=models.CASCADE)  # 此关系归属于哪篇论文
+    sub_label = models.ForeignKey(PaperLabel, verbose_name="所属标签", on_delete=models.CASCADE)  # 对应哪个标签
+    add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
+
+    def __str__(self):
+        return self.sub_paper.name
+
+    class Meta:
+        verbose_name = "论文与标签关联"
+        verbose_name_plural = verbose_name

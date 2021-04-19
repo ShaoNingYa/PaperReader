@@ -100,16 +100,22 @@ def getAllConferenceName() -> list:
     return allName
 
 
+def getAllPaperLabelName() -> list:
+    allName = list(set([label_one.label_text for label_one in models.PaperLabel.objects.all()]))
+    return allName
+
+
 @csrf_exempt
 def paper_mine(request):
     if request.method == 'GET':
         # print(request.GET)  # {'page': ['1'], 'limit': ['10'], 'sort': ['+id']}
         history_return = []
         print()
-        data_get = models.PaperBaseManage.objects.all() \
-            .filter(
-            sub_user=UserToken.objects.all().filter(user_token=request.GET.get("token"), is_alive=0)[0].username)
+        username = UserToken.objects.all().filter(user_token=request.GET.get("token"), is_alive=0)[0].username
+        data_get = models.PaperBaseManage.objects.all().filter(sub_user=username)
+        paper_label_obj = models.PaperLabelConnect.objects.all().filter(sub_user=username)
         for data_one in data_get:
+            paper_label = [_l.sub_label.label_text for _l in paper_label_obj.filter(sub_paper=data_one)][-1:]
             his_one = {
                 "paper_id": str(data_one.id),
                 "paper_title": str(data_one.name),
@@ -117,6 +123,7 @@ def paper_mine(request):
                 "paper_author": str(data_one.author),
                 "paper_sub_user": str(data_one.sub_user),
                 "paper_conference": str(data_one.conference),
+                "paper_label": "".join(paper_label),
                 "paper_history": getHistoryPageByPaper(data_one),
                 "paper_path": str(data_one.paper_file).split("static_files/paper_file_save/")[-1],
                 # .replace("static_files/paper_file_save/", ""),
@@ -128,7 +135,8 @@ def paper_mine(request):
         data = {
             "total": len(history_return),
             "items": history_return,
-            "all_conference": [{"text": con_one, "value": con_one} for con_one in getAllConferenceName()]
+            "all_conference": [{"text": con_one, "value": con_one} for con_one in getAllConferenceName()],
+            "all_label": [{"text": con_one, "value": con_one} for con_one in getAllPaperLabelName()]
         }
         return HttpResponse(json.dumps({"code": 20000, "data": data}))
         # return HttpResponse(json.dumps(dddd))
@@ -178,12 +186,46 @@ def get_all_conference(request):
     return HttpResponse(json.dumps({"code": 20000, "data": return_result}))
 
 
+def get_all_label(request):
+    all_con_obj = models.PaperLabel.objects.all()
+    return_result = []
+    for con_one in all_con_obj:
+        return_result.append({
+            "label_text": con_one.label_text,
+            "label_id": con_one.id,
+        })
+    return HttpResponse(json.dumps({"code": 20000, "data": return_result}))
+
+
+def get_all_paper_label(request):
+    all_label_obj = models.PaperLabel.objects.all()
+    return_result = []
+    for one_label in all_label_obj:
+        return_result.append({
+            "label_text": one_label.label_text,
+            "label_id": one_label.id,
+        })
+    return HttpResponse(json.dumps({"code": 20000, "data": return_result}))
+
+
 def get_conference_id_by_name(request):
     all_con_obj = models.PaperConference.objects.all().filter(name=request.GET.get("conference_name"))
     if all_con_obj:
         return HttpResponse(json.dumps({"code": 20000, "id": all_con_obj[0].id}))
     return HttpResponse(
         json.dumps({"code": 20000, "id": models.PaperConference.objects.all().filter(name="other")[0].id}))
+
+
+def get_label_id_by_name(request):
+    label_text = request.GET.get("label_text")
+    print("label_text", label_text)
+    if label_text.strip() != "":
+        all_con_obj = models.PaperLabel.objects.all().filter(label_text=label_text)
+        print("all_con_obj", all_con_obj)
+        if all_con_obj:
+            return HttpResponse(json.dumps({"code": 20000, "id": all_con_obj[0].id}))
+    return HttpResponse(
+        json.dumps({"code": 20000, "id": models.PaperLabel.objects.all().filter(label_text="None")[0].id}))
 
 
 @csrf_exempt
